@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas</title>
+    
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <ul class="navbar-nav mr-auto" style="list-style: none; margin: 0; padding: 0; margin-top: 4px; color:blue">
+               <li class="nav-item">item1</li>
+               <li class="nav-item">item2</li>
+               <li class="nav-item">item3</li>
+               <li class="nav-item">item4</li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <div>
+        <ul class="list-group" id="cambiar">
+            <li class="list-group-item" id="cambiar2"> primer item</li>
+            <li class="list-group-item"> segundo item</li>
+            <li class="list-group-item"> tercer item</li>
+            <li class="list-group-item"> cuarto item </li>
+            <button class="button" id="cambiarB" onClick="cambiarLista()">cambiar </button>
+        </ul>
+       
+
+    </div>
+    
+    <script src="js/practicaDom.js"></script>
+
+    <script>
+        //DECLARAMOS LAS VARIABLES
+        var i,j;
+        //PEDIMOS POR TECLADO EL NÚMERO DE FILAS
+        //Number fuerza a que se introduzca un número
+        var filas = Number(prompt("Introduce numero de filas"));
+        //PEDIMOS EL NÚMERO DE COLUMNAS
+        var colum = Number(prompt("Introduce numero de columnas"));
+        //MULTIPLICAMOS filas * columnas Y GUARDAMOS EL RESULTADO EN res
+        var res = filas * colum;
+        //COMENZAMOS A IMPRIMIR LA TABLA
+        document.write("<table border>");
+        //BUCLE DESDE 0 HASTA EL NÚMERO DE FILAS
+        for (i = 0; i < filas; i++) {
+            //EN CADA FILA ESCRIBIMOS UN <tr> PARA COMENZAR LA FILA
+            document.write("<tr>");
+            //BUCLE DESDE 0 HASTA EL NÚMERO DE COLUMNAS
+            for (j = 0; j < colum; j++) {
+                //EN CADA UNA ESCRIBIMOS UN <td> PARA COMENZAR UNA CELDA
+                document.write("<td>");
+                //LUEGO ESCRIBIMOS EL VALOR DE res
+                document.write(res);
+                //LE RESTAMOS 1 A res
+                res--;
+                //Y ESCRIBIMOS UN </td> PARA CERRAR LA CELDA
+                document.write("</td>");
+            }
+            //ESCRIBIMOS UN </tr> PORQUE SE TERMINÓ LA FILA
+            document.write("</tr>");
+        }
+        //Y POR ÚLTIMO CERRAMOS LA TABLA CON </table>
+        document.write("</table>");
+        </script>
+
+        
+        <script>
+            var item1 = document.getElementById("cambiar2");
+            var cambiar = document.getElementById("cambiarB");
+
+            cambiar.onclick = function(e){
+                    item1.innerText="Cambio de texto";
+            }
+        </script>
+
+</body>
+</html>
